@@ -1,6 +1,7 @@
 .portfolio {
   max-width: 1140px;
   margin: 0 auto;
+  padding-bottom: 104px;
 }
 
 .portfolio__title {
@@ -20,7 +21,7 @@
 
 .portfolio__link {
   display: block;
-  background: url('../../images/Portfolio/portfolio-arrow.png') no-repeat right;
+  background: url('../../images/Portfolio/portfolio-arrow.png') no-repeat calc(100% - 6px) 54%;
   padding: 20px 0;
   border-bottom: 1px solid #424242;
   text-decoration: none;
