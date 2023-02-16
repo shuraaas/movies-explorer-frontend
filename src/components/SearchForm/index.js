@@ -6,6 +6,7 @@ const SearchForm = () => {
     <div className='search-form'>
       <input className='search-form__input' type='input' placeholder='Фильм' />
       <button className='btn search-form__btn' type='button'>Найти</button>
+      {/* TODO: Доделать переключатель короткометражек */}
     </div>
   );
 };

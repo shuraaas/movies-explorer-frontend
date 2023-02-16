@@ -1,11 +1,14 @@
 import React from 'react';
 import './index.css';
 
-const MoviesCard = ({ path, save }) => {
-
-  const typeBtnSave = (
-    `${save ? 'btn movies-card__save movies-card__save_active' : 'btn movies-card__save'}`
+const MoviesCard = ({ path, save, saved }) => {
+  let typeBtnSave = (
+    `${save ? 'btn btn_movie_saved' : 'btn btn_movie_save'}`
   );
+
+  if (saved) {
+    typeBtnSave = 'btn btn_movie_unsaved';
+  }
 
   return (
     <li className='movies-card'>

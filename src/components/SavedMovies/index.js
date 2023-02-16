@@ -2,22 +2,20 @@ import React from 'react';
 import Footer from '../Footer';
 import SearchForm from '../SearchForm';
 import MoviesCardList from '../MoviesCardList';
-import Preloader from '../Preloader';
 import './index.css';
 import cardsList from './cards.js';
 
-const Movies = () => {
+const SavedMovies = () => {
   return (
     <>
       {/* <Header /> */}
-      <section className='movies'>
+      <section className='saved-movies'>
         <SearchForm />
         <MoviesCardList cards={cardsList} />
-        <Preloader />
       </section>
       <Footer />
     </>
   );
 };
 
-export default Movies;
+export default SavedMovies;
