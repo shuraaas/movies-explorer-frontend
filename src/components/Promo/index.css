@@ -1,0 +1,35 @@
+.promo {
+  background-color: #073042;
+  padding: 149px 0 93px;
+  display: flex;
+  justify-content: center;
+}
+
+.promo__inner {
+  display: flex;
+  gap: 190px;
+  max-width: 1140px;
+}
+
+.promo__title {
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 58px;
+  margin: 0;
+}
+
+.promo__description {
+  padding: 36px 0 146px;
+  max-width: 310px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  opacity: .5;
+  margin: 0;
+}
+
+.promo__main-illustration {
+  display: block;
+  width: 310px;
+  height: 304px;
+}

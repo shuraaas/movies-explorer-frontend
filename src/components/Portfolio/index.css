@@ -1,0 +1,32 @@
+.portfolio {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.portfolio__title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #8b8b8b;
+}
+
+.portfolio__links-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 30px;
+}
+
+.portfolio__link {
+  display: block;
+  background: url('../../images/Portfolio/portfolio-arrow.png') no-repeat right;
+  padding: 20px 0;
+  border-bottom: 1px solid #424242;
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: -1.2px;
+  color: #fff;
+}
