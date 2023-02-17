@@ -4,6 +4,7 @@ import Movies from '../Movies';
 import SavedMovies from '../SavedMovies';
 import Profile from '../Profile';
 import Register from '../Register';
+import Login from '../Login';
 
 const App = () => {
   return (
@@ -13,7 +14,8 @@ const App = () => {
         {/* <Movies /> */}
         {/* <SavedMovies /> */}
         {/* <Profile /> */}
-        <Register />
+        {/* <Register /> */}
+        <Login />
       </div>
     </div>
   );

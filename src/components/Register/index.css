@@ -1,6 +1,6 @@
 .register {
   max-width: 396px;
-  /* height: calc(100vh - 20px); */
+  height: calc(100vh - 140px);
   margin: 0 auto;
   padding: 70px 0;
 }

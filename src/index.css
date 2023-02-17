@@ -16,6 +16,8 @@
 
 @import url(./blocks/form/form.css);
 @import url(./blocks/form/__content/form__content.css);
+@import url(./blocks/form/__content/_type/form__content_type_register.css);
+@import url(./blocks/form/__content/_type/form__content_type_login.css);
 @import url(./blocks/form/__input/form__input.css);
 @import url(./blocks/form/__input-error/form__input-error.css);
 @import url(./blocks/form/__field/form__field.css);

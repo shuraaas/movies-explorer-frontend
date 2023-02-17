@@ -10,7 +10,7 @@ const Register = () => {
 
       <form className='form register__form'>
 
-        <fieldset className='form__content'>
+        <fieldset className='form__content form__content_type_register'>
 
           <label className='form__field'>
             <p className='form__label'>Имя</p>
