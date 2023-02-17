@@ -2,6 +2,7 @@ import React from 'react';
 import Main from '../Main';
 import Movies from '../Movies';
 import SavedMovies from '../SavedMovies';
+import Profile from '../Profile';
 
 const App = () => {
   return (
@@ -9,7 +10,8 @@ const App = () => {
       <div className="page__container">
         {/* <Main /> */}
         {/* <Movies /> */}
-        <SavedMovies />
+        {/* <SavedMovies /> */}
+        <Profile />
       </div>
     </div>
   );

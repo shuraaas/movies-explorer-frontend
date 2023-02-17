@@ -10,5 +10,13 @@
 @import url(./blocks/btn/_movie/btn_movie_save.css);
 @import url(./blocks/btn/_movie/btn_movie_saved.css);
 @import url(./blocks/btn/_movie/btn_movie_unsaved.css);
+@import url(./blocks/btn/_type/btn_type_edit.css);
+@import url(./blocks/btn/_type/btn_type_logout.css);
+
+@import url(./blocks/form/form.css);
+@import url(./blocks/form/__content/form__content.css);
+@import url(./blocks/form/__input/form__input.css);
+@import url(./blocks/form/__field/form__field.css);
+@import url(./blocks/form/__label/form__label.css);
 
 @import url(./blocks/section-title/section-title.css);

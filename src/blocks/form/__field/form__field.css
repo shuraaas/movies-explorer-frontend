@@ -1,0 +1,10 @@
+.form__field {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.form__field:first-child {
+  border-bottom: 1px solid #424242;
+}
