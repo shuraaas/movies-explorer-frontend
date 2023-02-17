@@ -1,0 +1,28 @@
+.movies-nav {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+}
+
+.movies-nav__link {
+  display: block;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #fff;
+}
+
+.movies-nav__item:last-child {
+  padding-left: 28px;
+}
+
+.movies-nav__link_active {
+  padding: 8px 22px;
+  background: #313131;
+  border-radius: 20px;
+  line-height: 16px;
+}

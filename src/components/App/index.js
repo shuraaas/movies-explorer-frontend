@@ -13,11 +13,11 @@ const App = () => {
       <div className="page__container">
         {/* <Main /> */}
         {/* <Movies /> */}
-        {/* <SavedMovies /> */}
+        <SavedMovies />
         {/* <Profile /> */}
         {/* <Register /> */}
         {/* <Login /> */}
-        <PageNotFound />
+        {/* <PageNotFound /> */}
       </div>
     </div>
   );

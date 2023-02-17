@@ -1,12 +1,13 @@
 .search-form {
-  padding: 80px 0 89px;
-  /* max-width: 1140px; */
-  /* margin: 0 auto; */
+  padding: 80px 0 9px;
   border-bottom: 1px solid #424242;
+}
+
+.search-form__inner {
   display: grid;
   align-items: center;
   grid-template-columns: 1fr 70px;
-  gap: 10px
+  gap: 30px 10px;
 }
 
 .search-form__input {

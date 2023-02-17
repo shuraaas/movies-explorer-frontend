@@ -1,0 +1,8 @@
+.form__field_type_profile {
+  display: flex;
+  align-items: baseline;
+}
+
+.form__field_type_profile:first-child {
+  border-bottom: 1px solid #424242;
+}

@@ -1,12 +1,15 @@
 import React from 'react';
+import FilterCheckbox from '../FilterCheckbox';
 import './index.css';
 
 const SearchForm = () => {
   return (
     <div className='search-form'>
-      <input className='search-form__input' type='input' placeholder='Фильм' />
-      <button className='btn search-form__btn' type='button'>Найти</button>
-      {/* TODO: Доделать переключатель короткометражек */}
+      <div className='search-form__inner'>
+        <input className='search-form__input' type='input' placeholder='Фильм' />
+        <button className='btn search-form__btn' type='button'>Найти</button>
+      </div>
+      <FilterCheckbox />
     </div>
   );
 };

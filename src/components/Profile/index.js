@@ -1,24 +1,27 @@
 import React from 'react';
+import Header from '../Header';
+import MoviesNav from '../MoviesNav';
 import './index.css';
 
 const Profile = () => {
   return (
     <>
-      {/* <Header /> */}
+      <Header>
+        <MoviesNav />
+      </Header>
       <section className='profile'>
         <h2 className='profile__title'>Привет, Виталий!</h2>
         <form className='form form_type_edit' name='edit' method='post' action='/'>
 
-          <fieldset className='form__content'>
+          <fieldset className='form__content form__content_type_profile'>
 
-            <label className='form__field'>
-              <p className='form__label'>Имя</p>
+            <label className='form__field form__field_type_profile'>
+              <p className='form__label form__label_type_profile'>Имя</p>
               <input
-                className='form__input form__input_type_name'
+                className='form__input form__input_type_profile form__input_type_name'
                 name='name'
                 id='name-input'
                 type='text'
-                placeholder='Имя'
                 minlength='2'
                 maxlength='40'
                 value='Виталий'
@@ -27,14 +30,13 @@ const Profile = () => {
               <span className='form__input-error name-input-error'></span>
             </label>
 
-            <label className='form__field'>
-              <p className='form__label'>E-mail</p>
+            <label className='form__field form__field_type_profile'>
+              <p className='form__label form__label_type_profile'>E-mail</p>
               <input
-                className='form__input form__input_type_email'
+                className='form__input form__input_type_profile form__input_type_email'
                 name='email'
                 id='email-input'
                 type='text'
-                placeholder='E-mail'
                 value='pochta@yandex.ru'
                 required
               />
