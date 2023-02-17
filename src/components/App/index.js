@@ -5,6 +5,7 @@ import SavedMovies from '../SavedMovies';
 import Profile from '../Profile';
 import Register from '../Register';
 import Login from '../Login';
+import PageNotFound from '../PageNotFound';
 
 const App = () => {
   return (
@@ -15,7 +16,8 @@ const App = () => {
         {/* <SavedMovies /> */}
         {/* <Profile /> */}
         {/* <Register /> */}
-        <Login />
+        {/* <Login /> */}
+        <PageNotFound />
       </div>
     </div>
   );
