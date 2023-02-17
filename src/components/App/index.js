@@ -3,6 +3,7 @@ import Main from '../Main';
 import Movies from '../Movies';
 import SavedMovies from '../SavedMovies';
 import Profile from '../Profile';
+import Register from '../Register';
 
 const App = () => {
   return (
@@ -11,7 +12,8 @@ const App = () => {
         {/* <Main /> */}
         {/* <Movies /> */}
         {/* <SavedMovies /> */}
-        <Profile />
+        {/* <Profile /> */}
+        <Register />
       </div>
     </div>
   );
