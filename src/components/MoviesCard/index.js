@@ -12,8 +12,8 @@ const MoviesCard = ({ path, save, saved }) => {
 
   return (
     <li className='movies-card'>
-      <div className="movies-card__header">
-        <div className="movies-card__info">
+      <div className='movies-card__header'>
+        <div className='movies-card__info'>
           <h2 className='movies-card__name'>33 слова о дизайне</h2>
           <p className='movies-card__duration'>1ч 47м</p>
         </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './index.css';
 
 const Header = ({ place, children }) => {
@@ -9,10 +10,8 @@ const Header = ({ place, children }) => {
 
   return (
     <header className={headerStyle}>
-      <div className='header__inner'>
-        <div className='header__logo'></div>
-        { children }
-      </div>
+      <Link className='header__logo' to='/' />
+      { children }
     </header>
   );
 };

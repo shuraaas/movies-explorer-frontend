@@ -4,7 +4,7 @@ import './index.css';
 const Preloader = () => {
   return (
     <div className='preloader'>
-      <button className='btn preloader__btn' type='button'>Ещё</button>
+      <button className='btn btn_type_preloader' type='button'>Ещё</button>
     </div>
   );
 };

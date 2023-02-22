@@ -1,6 +1,4 @@
 .login {
-  max-width: 396px;
-  margin: 0 auto;
-  padding: 70px 0;
   height: calc(100vh - 140px);
+  padding: 70px max(30px, (100% - 396px) / 2);
 }

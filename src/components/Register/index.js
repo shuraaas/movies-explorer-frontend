@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './index.css';
 
 const Register = () => {
   return (
     <section className='register'>
 
-      <div className='register__logo'></div>
+      <Link className='register__logo' to='/' />
       <h2 className='register__description'>Добро пожаловать!</h2>
 
       <form className='form register__form'>
@@ -62,8 +63,7 @@ const Register = () => {
 
       <div className='register__signin'>
         <p className='register__login'>Уже зарегистрированы?</p>
-        {/* <Link to='/sign-in' className='auth__login-link'>Войти</Link> */}
-        <a className='register__login-link' href='#'>Войти</a>
+        <Link className='link register__login-link' to='/signin'>Войти</Link>
       </div>
 
     </section>

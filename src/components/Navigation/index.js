@@ -1,14 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './index.css';
 
 const Navigation = () => {
   return (
     <ul className='nav'>
       <li className='nav__item'>
-        <a className='nav__link' href='#'>Регистрация</a>
+        <Link className='nav__link' to='/signup'>Регистрация</Link>
       </li>
       <li className='nav__item'>
-        <a className='nav__link nav__link_type_promo-active' href='#'>Войти</a>
+        <Link className='nav__link nav__link_type_promo-active' to='/signin'>Войти</Link>
       </li>
     </ul>
   );

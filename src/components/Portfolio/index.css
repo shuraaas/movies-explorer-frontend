@@ -1,7 +1,5 @@
 .portfolio {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding-bottom: 104px;
+  padding: 0 max(30px, (100% - 1140px) / 2) 86px;
 }
 
 .portfolio__title {
@@ -30,4 +28,16 @@
   line-height: 50px;
   letter-spacing: -1.2px;
   color: #fff;
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .portfolio {
+    padding: 3px max(50px, (100% - 1140px) / 2) 51px;
+  }
+
+  .portfolio__link {
+    font-size: 28px;
+    letter-spacing: -1.2px;
+    border-color: #E6E6E6;
+  }
 }

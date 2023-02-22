@@ -1,7 +1,5 @@
 .footer {
-  padding-top: 78px;
-  max-width: 1140px;
-  margin: 0 auto;
+  padding: 97px max(30px, (100% - 1140px) / 2) 0;
 }
 
 .footer__info {
@@ -21,7 +19,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 7px 0 12px;
+  padding: 7px 0;
   font-size: 13px;
   font-weight: 400;
 }

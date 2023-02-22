@@ -1,10 +1,19 @@
 .movies-nav {
+  display: flex;
+  gap: 48px;
+}
+
+.movies-nav__list {
   margin: 0;
   padding: 0;
   display: flex;
   align-items: center;
   gap: 20px;
   list-style: none;
+}
+
+.movies-nav__item:first-child {
+  display: none;
 }
 
 .movies-nav__link {
@@ -16,13 +25,104 @@
   color: #fff;
 }
 
-.movies-nav__item:last-child {
-  padding-left: 28px;
-}
-
-.movies-nav__link_active {
+.movies-nav__btn {
+  display: block;
   padding: 8px 22px;
   background: #313131;
   border-radius: 20px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
   line-height: 16px;
+  color: #fff;
+}
+
+.movies-nav__burger-btn {
+  padding-right: 8px;
+  position: relative;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+.movies-nav__burger {
+  width: 28px;
+  height: 3px;
+  background: #fff;
+  transition: all .3s ease-in-out;
+}
+
+.movies-nav__burger::before,
+.movies-nav__burger::after {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 3px;
+  background: #fff;
+  transition: all .3s ease-in-out;
+}
+
+.movies-nav__burger::before {
+  transform: translateY(-10px);
+}
+
+.movies-nav__burger::after {
+  transform: translateY(10px);
+}
+
+.movies-nav__burger-btn.open .movies-nav__burger {
+  background: transparent;
+}
+
+.movies-nav__burger-btn.open .movies-nav__burger::before {
+  transform: rotate(45deg) translate(12px, -12px);
+  width: 22px;
+}
+
+.movies-nav__burger-btn.open .movies-nav__burger::after {
+  transform: rotate(-45deg) translate(12px, 12px);
+  width: 22px;
+}
+
+
+@media (max-width: 900px) {
+  .movies-nav {
+    display: none;
+  }
+
+  .movies-nav__list {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .movies-nav__item:first-child {
+    display: block;
+  }
+
+  .movies-nav__link {
+    font-size: 18px;
+    line-height: 18px;
+  }
+
+  .movies-nav_burger {
+    display: flex;
+    position: fixed;
+    background: #202020;
+    top: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: calc(100vh - 250px);
+    width: 520px;
+    padding: 160px 0 90px;
+  }
+
+  .movies-nav__burger-btn {
+    display: flex;
+  }
 }

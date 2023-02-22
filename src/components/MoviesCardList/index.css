@@ -7,3 +7,10 @@
   row-gap: 30px;
   column-gap: 24px;
 }
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .movies-card-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 37px 30px;
+  }
+}

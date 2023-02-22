@@ -1,13 +1,4 @@
 .preloader {
   text-align: center;
-  padding: 50px 0 80px;
-}
-
-.preloader__btn {
-  padding: 11px 146px;
-  border: 1px solid #424242;
-  border-radius: 5px;
-  font-size: 12px;
-  font-weight: 500;
-  color: #fff;
+  padding: 51px 0 62px;
 }

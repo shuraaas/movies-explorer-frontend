@@ -1,13 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './index.css';
 
-// TODO: Переписать классы иил вообще выделить отдельный общий компонент на регистрацию и логин
+// TODO: Переписать классы или вообще выделить отдельный общий компонент на регистрацию и логин
 
 const Login = () => {
   return (
     <section className='login'>
 
-      <div className='register__logo'></div>
+      {/* <div className='register__logo'></div> */}
+      <Link className='register__logo' to='/' />
       <h2 className='register__description'>Рады видеть!</h2>
 
       <form className='form register__form'>
@@ -49,8 +51,7 @@ const Login = () => {
 
       <div className='register__signin'>
         <p className='register__login'>Ещё не зарегистрированы?</p>
-        {/* <Link to='/sign-in' className='auth__login-link'>Войти</Link> */}
-        <a className='register__login-link' href='#'>Регистрация</a>
+        <Link className='link register__login-link' to='/signup'>Регистрация</Link>
       </div>
 
     </section>
