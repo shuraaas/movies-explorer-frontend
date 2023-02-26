@@ -6,3 +6,11 @@
   font-weight: 500;
   color: #fff;
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .btn_type_register {
+    padding: 15px 0;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

@@ -12,9 +12,7 @@ const Profile = () => {
       <section className='profile'>
         <h2 className='profile__title'>Привет, Виталий!</h2>
         <form className='form form_type_edit' name='edit' method='post' action='/'>
-
           <fieldset className='form__content form__content_type_profile'>
-
             <label className='form__field form__field_type_profile'>
               <p className='form__label form__label_type_profile'>Имя</p>
               <input
@@ -29,7 +27,6 @@ const Profile = () => {
               />
               <span className='form__input-error name-input-error'></span>
             </label>
-
             <label className='form__field form__field_type_profile'>
               <p className='form__label form__label_type_profile'>E-mail</p>
               <input
@@ -42,12 +39,9 @@ const Profile = () => {
               />
               <span className='form__input-error email-input-error'></span>
             </label>
-
           </fieldset>
-
           <button className='btn btn_type_edit' type='submit'>Редактировать</button>
         </form>
-
         <button className='btn btn_type_logout' type='button'>Выйти из аккаунта</button>
       </section>
     </>

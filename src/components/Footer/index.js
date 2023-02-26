@@ -10,13 +10,13 @@ const Footer = () => {
         <p className='footer__text'>Учебный проект Яндекс.Практикум х BeatFilm.</p>
       </div>
       <div className='footer__navbar'>
-        <p>&copy; {date.getFullYear()}</p>
+        <p className='footer__date'>&copy; {date.getFullYear()}</p>
         <ul className='footer__nav'>
           <li>
-            <a className='link footer__nav-link' href='#'>Яндекс.Практикум</a>
+            <a className='link footer__nav-link' href='https://practicum.yandex.ru/'>Яндекс.Практикум</a>
           </li>
           <li>
-            <a className='link footer__nav-link' href='#'>Github</a>
+            <a className='link footer__nav-link' href='https://github.com/shuraaas/'>Github</a>
           </li>
         </ul>
       </div>

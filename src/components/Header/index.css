@@ -15,8 +15,8 @@
   background: url('../../images/Header/logo.png') no-repeat center;
 }
 
-/* @media (max-width: 900px) {
+@media (min-width: 320px) and (max-width: 767px) {
   .header {
-    padding: 18px 38px 18px max(30px, (100% - 1140px) / 2);
+    padding: 18px 14px;
   }
-} */
+}

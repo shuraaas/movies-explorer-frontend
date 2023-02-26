@@ -88,7 +88,6 @@
   width: 22px;
 }
 
-
 @media (max-width: 900px) {
   .movies-nav {
     display: none;
@@ -124,5 +123,50 @@
 
   .movies-nav__burger-btn {
     display: flex;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .movies-nav__burger-btn {
+    width: 28px;
+    height: 28px;
+  }
+
+  .movies-nav__burger::before,
+  .movies-nav__burger::after,
+  .movies-nav__burger {
+    width: 22px;
+    height: 2.5px;
+  }
+
+  .movies-nav__burger::before {
+    transform: translateY(-9px);
+  }
+
+  .movies-nav__burger::after {
+    transform: translateY(9px);
+  }
+
+  .movies-nav__burger-btn {
+    padding-right: 9px;
+    width: 22px;
+  }
+
+  .movies-nav_burger {
+    height: calc(100vh - 193px);
+    width: 100vw;
+    padding: 146px 0 49px;
+  }
+
+  .movies-nav__list {
+    gap: 28px;
+  }
+
+  .movies-nav__burger-btn.open .movies-nav__burger::before {
+    transform: rotate(45deg) translate(-2px, -9px);
+  }
+
+  .movies-nav__burger-btn.open .movies-nav__burger::after {
+    transform: rotate(-45deg) translate(10px, -2px);
   }
 }

@@ -4,19 +4,24 @@ import './index.css';
 
 const MoviesNav = () => {
   const burger = useRef(null);
+  const burgerBtn = useRef(null);
   const moviesNav = useRef(null);
 
   let menuOpen = false;
 
   const handleBurgerClick = () => {
-    const menuBtn = document.querySelector('.movies-nav__burger-btn');
-
     if(!menuOpen) {
-      menuBtn.classList.add('open');
+      burgerBtn.current.classList.add('open');
+      burgerBtn.current.style.position = 'fixed';
+      burgerBtn.current.style.top = '23px';
+      burgerBtn.current.style.right = '29px';
       moviesNav.current.classList.add('movies-nav_burger');
       menuOpen = true;
     } else {
-      menuBtn.classList.remove('open');
+      burgerBtn.current.classList.remove('open');
+      burgerBtn.current.style.position = 'relative';
+      burgerBtn.current.style.top = 0;
+      burgerBtn.current.style.right = 0;
       moviesNav.current.classList.remove('movies-nav_burger');
       menuOpen = false;
     }
@@ -39,7 +44,7 @@ const MoviesNav = () => {
         </ul>
         <Link className='movies-nav__btn' to='/profile'>Аккаунт</Link>
       </div>
-      <div className='movies-nav__burger-btn' onClick={handleBurgerClick}>
+      <div className='movies-nav__burger-btn' onClick={handleBurgerClick} ref={burgerBtn}>
         <span className='movies-nav__burger' ref={burger}></span>
       </div>
     </>

@@ -8,3 +8,10 @@
   letter-spacing: -0.9px;
   color: #fff;
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .section-title {
+    padding: 28px 0;
+    font-size: 18px;
+  }
+}

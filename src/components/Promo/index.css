@@ -56,3 +56,28 @@
     max-width: 260px;
   }
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .promo {
+    padding: 70px 14px 31px;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 43px;
+    text-align: center;
+  }
+
+  .promo__main-illustration {
+    width: 210px;
+    height: 206px;
+  }
+
+  .promo__title {
+    font-size: 30px;
+    line-height: 38px;
+    letter-spacing: -1.2px;
+  }
+
+  .promo__description {
+    padding: 24px calc((100% - 260px) / 2) 80px;
+  }
+}

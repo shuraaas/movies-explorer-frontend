@@ -7,3 +7,9 @@
     padding-top: 80px;
   }
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .form_type_edit {
+    padding-top: 64px;
+  }
+}

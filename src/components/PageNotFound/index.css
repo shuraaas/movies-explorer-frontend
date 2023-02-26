@@ -33,3 +33,13 @@
   font-weight: 400;
   color: #4285F4;
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .page-not-found__title {
+    font-size: 80px;
+  }
+
+  .page-not-found__subtitle {
+    font-size: 12px;
+  }
+}

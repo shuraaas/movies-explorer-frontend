@@ -2,3 +2,9 @@
   min-height: calc(100vh - 244px);
   padding: 0 max(30px, (100% - 1140px) / 2);
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .saved-movies {
+    padding: 0 0 71px;
+  }
+}

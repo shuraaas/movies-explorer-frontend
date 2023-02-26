@@ -39,3 +39,29 @@
   font-weight: 400;
   color: #4285f4;
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .register {
+    height: 100%;
+    padding: 56px max(30px, (100% - 396px) / 2) 31px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .register__description {
+    padding: 51px 0 81px;
+  }
+
+  .register__login {
+    font-size: 12px;
+  }
+
+  .register__login-link {
+    font-size: 12px;
+  }
+
+  .register__signin {
+    padding-top: 14px;
+  }
+}

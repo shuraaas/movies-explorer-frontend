@@ -29,3 +29,14 @@
 .filter-checkbox__icon:checked + .filter-checkbox__label::before {
   background-image: url('../../images/FilterCheckbox/on.png');
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .filter-checkbox {
+    padding: 44px 0;
+    font-size: 11px;
+  }
+
+  .filter-checkbox__label {
+    gap: 13px;
+  }
+}

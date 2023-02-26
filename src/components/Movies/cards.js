@@ -20,10 +20,10 @@ const cards = [
   { id: 6, path: card_6, save: false },
   { id: 7, path: card_7, save: false },
   { id: 8, path: card_8, save: false },
-  // { id: 9, path: card_9, save: false },
-  // { id: 10, path: card_10, save: true },
-  // { id: 11, path: card_11, save: false },
-  // { id: 12, path: card_12, save: false },
+  { id: 9, path: card_9, save: false },
+  { id: 10, path: card_10, save: true },
+  { id: 11, path: card_11, save: false },
+  { id: 12, path: card_12, save: false },
 ];
 
 export default cards;
