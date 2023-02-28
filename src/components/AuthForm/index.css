@@ -1,16 +1,16 @@
-.register {
+.auth {
   height: calc(100vh - 140px);
   padding: 70px max(30px, (100% - 396px) / 2);
 }
 
-.register__logo {
+.auth__logo {
   display: block;
   width: 38px;
   height: 38px;
-  background: url('../../images/Register/logo.png') no-repeat center;
+  background: url('../../images/AuthForm/auth-logo.png') no-repeat center;
 }
 
-.register__description {
+.auth__description {
   margin: 0;
   padding: 41px 0;
   font-size: 24px;
@@ -18,7 +18,7 @@
   color: #fff;
 }
 
-.register__signin {
+.auth__signin {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,14 +26,14 @@
   padding-top: 18px;
 }
 
-.register__login {
+.auth__login {
   margin: 0;
   font-size: 14px;
   font-weight: 400;
   color: #8b8b8b;
 }
 
-.register__login-link {
+.auth__login-link {
   text-decoration: none;
   font-size: 14px;
   font-weight: 400;
@@ -41,7 +41,7 @@
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-  .register {
+  .auth {
     height: 100%;
     padding: 56px max(30px, (100% - 396px) / 2) 31px;
     display: flex;
@@ -49,19 +49,19 @@
     align-items: center;
   }
 
-  .register__description {
+  .auth__description {
     padding: 51px 0 81px;
   }
 
-  .register__login {
+  .auth__login {
     font-size: 12px;
   }
 
-  .register__login-link {
+  .auth__login-link {
     font-size: 12px;
   }
 
-  .register__signin {
+  .auth__signin {
     padding-top: 14px;
   }
 }

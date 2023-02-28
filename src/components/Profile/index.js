@@ -14,7 +14,7 @@ const Profile = () => {
         <form className='form form_type_edit' name='edit' method='post' action='/'>
           <fieldset className='form__content form__content_type_profile'>
             <label className='form__field form__field_type_profile'>
-              <p className='form__label form__label_type_profile'>Имя</p>
+              Имя
               <input
                 className='form__input form__input_type_profile form__input_type_name'
                 name='name'
@@ -28,7 +28,7 @@ const Profile = () => {
               <span className='form__input-error name-input-error'></span>
             </label>
             <label className='form__field form__field_type_profile'>
-              <p className='form__label form__label_type_profile'>E-mail</p>
+              E-mail
               <input
                 className='form__input form__input_type_profile form__input_type_email'
                 name='email'

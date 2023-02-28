@@ -15,37 +15,36 @@ const MoviesNav = () => {
       burgerBtn.current.style.position = 'fixed';
       burgerBtn.current.style.top = '23px';
       burgerBtn.current.style.right = '29px';
-      moviesNav.current.classList.add('movies-nav_burger');
+      moviesNav.current.classList.add('header__movies-nav_burger');
       menuOpen = true;
     } else {
       burgerBtn.current.classList.remove('open');
       burgerBtn.current.style.position = 'relative';
       burgerBtn.current.style.top = 0;
       burgerBtn.current.style.right = 0;
-      moviesNav.current.classList.remove('movies-nav_burger');
+      moviesNav.current.classList.remove('header__movies-nav_burger');
       menuOpen = false;
     }
   };
 
-
   return (
     <>
-      <div className='movies-nav' ref={moviesNav}>
-        <ul className='movies-nav__list'>
-          <li className='movies-nav__item'>
-            <Link className='movies-nav__link' to='/'>Главная</Link>
+      <div className='header__movies-nav' ref={moviesNav}>
+        <ul className='header__movies-nav-list'>
+          <li className='header__movies-nav-item'>
+            <Link className='header__movies-nav-link' to='/'>Главная</Link>
           </li>
-          <li className='movies-nav__item'>
-            <Link className='movies-nav__link' to='/movies'>Фильмы</Link>
+          <li className='header__movies-nav-item'>
+            <Link className='header__movies-nav-link' to='/movies'>Фильмы</Link>
           </li>
-          <li className='movies-nav__item'>
-            <Link className='movies-nav__link' to='/saved-movies'>Сохранённые фильмы</Link>
+          <li className='header__movies-nav-item'>
+            <Link className='header__movies-nav-link' to='/saved-movies'>Сохранённые фильмы</Link>
           </li>
         </ul>
-        <Link className='movies-nav__btn' to='/profile'>Аккаунт</Link>
+        <Link className='header__movies-nav-btn' to='/profile'>Аккаунт</Link>
       </div>
-      <div className='movies-nav__burger-btn' onClick={handleBurgerClick} ref={burgerBtn}>
-        <span className='movies-nav__burger' ref={burger}></span>
+      <div className='header__movies-nav-burger-btn' onClick={handleBurgerClick} ref={burgerBtn}>
+        <span className='header__movies-nav-burger' ref={burger}></span>
       </div>
     </>
   );

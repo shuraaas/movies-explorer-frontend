@@ -7,17 +7,38 @@ const Portfolio = () => {
       <h2 className='portfolio__title'>Портфолио</h2>
       <ul className='portfolio__links-list'>
         <li>
-          <a className='link portfolio__link' href='https://shuraaas.github.io/how-to-learn/index.html/'>Статичный сайт</a>
+          <a
+            className='link portfolio__link'
+            href='https://shuraaas.github.io/how-to-learn/index.html'
+            target='_blank' 
+            rel='noopener noreferrer'
+          >
+            Статичный сайт
+          </a>
         </li>
         <li>
-          <a className='link portfolio__link' href='https://shuraaas.github.io/russian-travel/index.html/'>Адаптивный сайт</a>
+          <a
+            className='link portfolio__link'
+            href='https://shuraaas.github.io/russian-travel/index.html'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Адаптивный сайт
+          </a>
         </li>
         <li>
-          <a className='link portfolio__link' href='https://shuraaas.nomoredomains.rocks/'>Одностраничное приложение</a>
+          <a
+            className='link portfolio__link'
+            href='https://shuraaas.github.io/mesto-react-auth/index.html'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Одностраничное приложение
+          </a>
         </li>
       </ul>
     </section>
-  );  
+  );
 };
 
 export default Portfolio;

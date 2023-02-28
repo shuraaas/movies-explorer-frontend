@@ -1,4 +1,4 @@
-.btn_type_register {
+.btn_type_auth {
   background: #4285F4;
   border-radius: 3px;
   padding: 14px 0;
@@ -8,7 +8,7 @@
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-  .btn_type_register {
+  .btn_type_auth {
     padding: 15px 0;
     font-size: 12px;
     line-height: 15px;
