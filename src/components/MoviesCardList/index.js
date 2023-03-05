@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import MoviesCard from '../MoviesCard';
 import './index.css';
 
-const MoviesCardList = ({ cards }) => {
+const MoviesCardList = ({ movies }) => {
+
+  // useEffect(() => {
+  //   localStorage.clear()
+  // }, []);
+  // const movies1 = [];
+  // for(let i = 0; i < 3 ; i++) {
+  //   movies1.push(movies[i]);
+  // }
+  // if (movies) console.log(movies);
+
   return (
     <ul className='movies-card-list'>
-      {cards.map(card => (
+      {movies && movies.map(movie => (
         <MoviesCard
-          key={card.id}
-          {...card}
+          key={movie._id || movie.id}
+          {...movie}
         />
       ))}
     </ul>

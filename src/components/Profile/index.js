@@ -20,8 +20,8 @@ const Profile = () => {
                 name='name'
                 id='name-input'
                 type='text'
-                minlength='2'
-                maxlength='40'
+                minLength='2'
+                maxLength='40'
                 value='Виталий'
                 required
               />

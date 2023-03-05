@@ -2,13 +2,13 @@ import React, { useRef } from 'react';
 import './index.css';
 
 const Preloader = () => {
-  const preloaderSpin = useRef(null);
+  const preloaderSpinRef = useRef(null);
   const preloaderSpinOpen = false;
 
   const handleBtnClick = (e) => {
     if (!preloaderSpinOpen) {
       e.target.style.display = 'none';
-      preloaderSpin.current.style.display = 'flex';
+      preloaderSpinRef.current.style.display = 'flex';
     }
   };
 
@@ -16,7 +16,7 @@ const Preloader = () => {
     <>
       <div className='preloader'>
         <button className='btn btn_type_preloader' type='button' onClick={handleBtnClick}>Ещё</button>
-        <div className='preloader__spin' ref={preloaderSpin}>
+        <div className='preloader__spin' ref={preloaderSpinRef}>
           <span className='preloader__spin-round'></span>
         </div>
       </div>

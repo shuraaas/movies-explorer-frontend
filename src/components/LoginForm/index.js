@@ -1,8 +1,49 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-const LoginForm = () => {
+// TODO: поле email должно соответствовать шаблону почты
+// TODO: моментальную механику валидации и показ ошибок в интерфейсе.
+
+const LoginForm = ({ onLogin }) => {
+
+  useEffect(() => {
+    setState({
+      email: '',
+      password: '',
+    })
+  }, []);
+
+  const [state, setState] = useState({
+    email: '',
+    password: '',
+  });
+
+  const handleChangeUserEmail = (e) => {
+    setState({
+      ...state,
+      email: e.target.value,
+    })
+  };
+
+  const handleChangeUserPassword = (e) => {
+    setState({
+      ...state,
+      password: e.target.value,
+    })
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const { email, password } = state;
+
+    // console.log(email, password);
+
+    if (!email || !password) return;
+    if (onLogin) onLogin(email, password);
+  };
+
   return (
-    <form className='form'>
+    <form className='form' onSubmit={handleSubmit}>
       <fieldset className='form__content form__content_type_login'>
 
         <label className='form__field'>
@@ -11,7 +52,8 @@ const LoginForm = () => {
             className='form__input'
             name='email'
             type='text'
-            value='pochta@yandex.ru'
+            value={state.email}
+            onChange={handleChangeUserEmail}
             placeholder='E-mail'
             required
           />
@@ -23,7 +65,9 @@ const LoginForm = () => {
             className='form__input'
             name='password'
             type='password'
-            value=''
+            value={state.password}
+            onChange={handleChangeUserPassword}
+            placeholder='Пароль'
             required
           />
         </label>

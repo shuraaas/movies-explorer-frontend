@@ -7,12 +7,13 @@ import Portfolio from '../Portfolio';
 import Footer from '../Footer';
 import Header from '../Header';
 import Navigation from '../Navigation';
+import MoviesNav from '../MoviesNav';
 
-const Main = () => {
+const Main = ({ loggedIn }) => {
   return (
     <>
       <Header place='main'>
-        <Navigation />
+        {loggedIn ? <MoviesNav /> : <Navigation />}
       </Header>
       <main>
         <Promo />

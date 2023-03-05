@@ -2,7 +2,7 @@ import React from 'react';
 import AuthForm from '../AuthForm';
 import RegisterForm from '../RegisterForm';
 
-const Register = () => {
+const Register = ({ onRegister }) => {
   return (
     <AuthForm
       description='Добро пожаловать!'
@@ -10,7 +10,7 @@ const Register = () => {
       link='Войти'
       linkPath='/signin'
     >
-      <RegisterForm />
+      <RegisterForm onRegister={onRegister} />
     </AuthForm>
   );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import AuthForm from '../AuthForm';
 import LoginForm from '../LoginForm';
 
-const Login = () => {
+const Login = ({ onLogin }) => {
   return (
     <AuthForm
       description='Рады видеть!'
@@ -10,7 +10,7 @@ const Login = () => {
       link='Регистрация'
       linkPath='/signup'
     >
-      <LoginForm />
+      <LoginForm onLogin={onLogin} />
     </AuthForm>
   );
 };
