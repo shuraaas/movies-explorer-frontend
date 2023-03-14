@@ -27,5 +27,6 @@
 @import url(./blocks/form/__input-error/form__input-error.css);
 @import url(./blocks/form/__field/form__field.css);
 @import url(./blocks/form/__field/_type/form__field_type_profile.css);
+@import url(./blocks/form/__message/form__message.css);
 
 @import url(./blocks/section-title/section-title.css);

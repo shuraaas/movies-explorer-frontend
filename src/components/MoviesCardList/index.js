@@ -2,7 +2,9 @@ import React, { useEffect } from 'react';
 import MoviesCard from '../MoviesCard';
 import './index.css';
 
-const MoviesCardList = ({ movies }) => {
+const MoviesCardList = ({ movies, savedMovies, onDelete }) => {
+
+  // console.log('MoviesCardList', movies);
 
   // useEffect(() => {
   //   localStorage.clear()
@@ -15,12 +17,20 @@ const MoviesCardList = ({ movies }) => {
 
   return (
     <ul className='movies-card-list'>
-      {movies && movies.map(movie => (
+      {movies.map(movie => (
+        <MoviesCard
+          key={movie._id || movie.id}
+          savedMovies={savedMovies}
+          onDelete={onDelete}
+          {...movie}
+        />
+      ))}
+      {/* {movies && movies.map(movie => (
         <MoviesCard
           key={movie._id || movie.id}
           {...movie}
         />
-      ))}
+      ))} */}
     </ul>
   );
 };

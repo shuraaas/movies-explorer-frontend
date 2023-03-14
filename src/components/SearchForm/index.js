@@ -1,43 +1,76 @@
-import React, { useEffect, useState } from 'react';
-
-import moviesApi from '../../utils/MoviesApi.js';
-
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import FilterCheckbox from '../FilterCheckbox';
 import './index.css';
 
-const SearchForm = () => {
-  const [request, setRequest] = useState('');
-  const [movies, setMovies] = useState([]);
+const SearchForm = ({ onSearch, movies, checkbox, movieRequest }) => {
+  const [checkboxState, setCheckboxState] = useState(checkbox);
+  const {
+    register,
+    formState: { errors, isValid },
+    handleSubmit,
+  } = useForm({
+    mode: 'onChange',
+    defaultValues: {
+      search: movieRequest,
+    },
+  });
 
-  // useEffect(() => {
-  //   const moviesData = async () => {
-  //     const movies = await moviesApi.getMovies();
-  //     setMovies(movies);
-  //   };
-  //   moviesData();
-  // }, []);
+  const handleFilter = checkboxState => setCheckboxState(checkboxState);
+  const checkDuration = () => movies.filter(movie => movie.duration <= 40);
 
-  const handleChange = (e) => {
-    setRequest(e.target.value);
+  const findMovie = (req) => {
+    if (checkboxState) {
+      return checkDuration()
+        .filter(movie => {
+          return movie
+            .nameRU
+            .toLowerCase()
+            .includes(req.toLowerCase())
+            || movie
+            .nameEN
+            .toLowerCase()
+            .includes(req.toLowerCase())
+        });
+    }
+
+    return movies
+      .filter(movie => {
+        return movie
+          .nameRU
+          .toLowerCase()
+          .includes(req.toLowerCase())
+          || movie
+          .nameEN
+          .toLowerCase()
+          .includes(req.toLowerCase())
+        });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const onSubmit = (data) => {
+    const result = findMovie(data.search);
 
-    const filterCheckbox = JSON.parse(localStorage.getItem('filterCheckbox')) || false;
+    onSearch(result);
 
-    localStorage.setItem('movies', JSON.stringify(movies));
-    localStorage.setItem('request', request);
-    localStorage.setItem('filterCheckbox', filterCheckbox);
+    localStorage.setItem('movies', JSON.stringify(result));
+    localStorage.setItem('request', data.search);
   };
 
   return (
     <div className='search-form'>
-      <form className='search-form__inner' onSubmit={handleSubmit}>
-        <input className='search-form__input' type='text' placeholder='Фильм' value={request} onChange={handleChange} required />
-        <button className='btn btn_type_search-form' type='submit'>Найти</button>
+      <form className='search-form__inner' onSubmit={handleSubmit(onSubmit)}>
+        <input
+          className='search-form__input'
+          placeholder='Фильм'
+          {...register('search', {
+            required: 'Нужно ввести ключевое слово',
+            minLength: 1,
+          })}
+        />
+        {errors?.search && <span className='search-form__err'>{errors?.search?.message}</span>}
+        <button className='btn btn_type_search-form' type='submit' disabled={!isValid}>Найти</button>
       </form>
-      <FilterCheckbox />
+      <FilterCheckbox onFilter={handleFilter} />
     </div>
   );
 };

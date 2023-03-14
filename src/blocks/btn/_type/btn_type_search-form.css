@@ -8,3 +8,8 @@
   border-radius: 3px;
   color: #fff;
 }
+
+.btn_type_search-form:disabled {
+  opacity: .5;
+  cursor: default;
+}

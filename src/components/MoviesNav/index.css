@@ -45,6 +45,7 @@
   align-items: center;
   width: 28px;
   height: 28px;
+  z-index: 1;
   cursor: pointer;
   transition: all .3s ease-in-out;
 }
@@ -113,6 +114,7 @@
     background: #202020;
     top: 0;
     right: 0;
+    z-index: 1;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;

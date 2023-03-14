@@ -3,9 +3,8 @@ import mainApi from '../../utils/MainApi.js';
 import './index.css';
 
 const MoviesCard = ({
-  // path,
-  save,
-  saved,
+  // save,
+  // saved,
   country,
   director,
   duration,
@@ -14,18 +13,20 @@ const MoviesCard = ({
   image,
   trailerLink,
   id,
+  _id,
   nameRU,
   nameEN,
+  savedMovies,
+  onDelete
 }) => {
-  // let typeBtnSave = false;
-  //   `${save ? 'btn btn_movie_saved' : 'btn btn_movie_save'}`
-  // );
+
+  // console.log(_id);
+
+  let typeBtnSave = `${savedMovies ? 'btn btn_movie_unsaved' : 'btn btn_movie_save'}`;
 
   // if (saved) {
   //   typeBtnSave = 'btn btn_movie_unsaved';
   // }
-
-  // console.log(image);
 
   let btnSaveActive = false;
 
@@ -51,8 +52,15 @@ const MoviesCard = ({
   };
 
   const handleSaveBtnClick = (e) => {
+    if (savedMovies) {
+      onDelete(_id);
+      console.log('savedMovies');
+      return;
+    }
+
     if (!btnSaveActive) {
-      e.target.classList.remove('btn_movie_save');
+      console.log('!btnSaveActive');
+      // e.target.classList.remove('btn_movie_save');
       e.target.classList.add('btn_movie_saved');
       btnSaveActive = true;
 
@@ -71,11 +79,14 @@ const MoviesCard = ({
       });
 
     } else {
+      // console.log('else');
       e.target.classList.add('btn_movie_save');
       e.target.classList.remove('btn_movie_saved');
       btnSaveActive = false;
-
-      mainApi.deleteMovie(id);
+      // console.log('_id',_id);
+      // console.log('id', id);
+      onDelete(id);
+      // mainApi.deleteMovie(id);
     }
   };
 
@@ -86,9 +97,10 @@ const MoviesCard = ({
           <h2 className='movies-card__name'>{nameRU}</h2>
           <p className='movies-card__duration'>{checkDuration()}</p>
         </div>
-        <button className='btn btn_movie_save' type='button' onClick={handleSaveBtnClick}></button>
+        {/* <button className='btn btn_movie_save' type='button' onClick={handleSaveBtnClick}></button> */}
+        <button className={typeBtnSave} type='button' onClick={handleSaveBtnClick}></button>
       </div>
-      <img className='movies-card__image' src={image} alt={nameRU} />
+      <img className='movies-card__image' src={image.url ? `https://api.nomoreparties.co${image.url}` : image} alt={nameRU} />
     </li>
   );
 };
