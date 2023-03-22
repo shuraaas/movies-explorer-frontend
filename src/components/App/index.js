@@ -23,15 +23,12 @@ const App = () => {
   let navigate = useNavigate();
 
   useEffect(() => {
-    getSavedMovies();
-  }, []);
-
-  useEffect(() => {
     const jwt = localStorage.getItem('jwt');
 
     if (jwt) {
       tokenCheck(jwt);
       getMoviesData();
+      getSavedMovies();
     };
   }, [loggedIn, result]);
 
@@ -104,9 +101,9 @@ const App = () => {
   const handleDeleteMovieClick = async (id) => {
     try {
       if (Number(id)) {
-        const qwe = savedMovies.filter(item => item.movieId === id)
-        await mainApi.deleteMovie(qwe[0]._id);
-        setSavedMovies(movies => movies.filter(movie => movie._id !== qwe[0]._id));
+        const movie = savedMovies.filter(item => item.movieId === id)
+        await mainApi.deleteMovie(movie[0]._id);
+        setSavedMovies(movies => movies.filter(item => item._id !== movie[0]._id));
         return;
       }
 
@@ -136,8 +133,6 @@ const App = () => {
       console.log(err);
     }
   };
-
-
 
   return (
     <CurrentUserContext.Provider value={user}>

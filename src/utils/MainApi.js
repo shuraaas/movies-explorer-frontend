@@ -53,54 +53,10 @@ class MainApi {
       })
     });
   };
-
-  // запрашиваем начальные карточки с сервера
-  // getMovies = () => {
-  //   return this._request(this._url, {
-  //       headers: this._headers
-  //     });
-  // };
-
-  // загружаем новую карточку на сервер
-  // setNewCard = ({ name, link }) => {
-  //   return this._request(`${this._url}cards`, {
-  //     method: 'POST',
-  //     headers: this._headers,
-  //     body: JSON.stringify({
-  //       name,
-  //       link
-  //     })
-  //   });
-  // };
-
-  // deleteCard = (cardId) => {
-  //   return this._request(`${this._url}cards/${cardId}`, {
-  //     method: 'DELETE',
-  //     headers: this._headers
-  //   });
-  // };
-
-  // ставим лайк
-  // likeCard = (cardId, status) => {
-  //   return this._request(`${this._url}cards/${cardId}/likes`, {
-  //     method: status ? 'DELETE' : 'PUT',
-  //     headers: this._headers
-  //   });
-  // };
-
-  // загружаем новый аватар на сервер
-  // changeAvatar = (data) => {
-  //   return this._request(`${this._url}users/me/avatar`, {
-  //     method: 'PATCH',
-  //     headers: this._headers,
-  //     body: JSON.stringify({
-  //       avatar: data.avatar
-  //     })
-  //   });
-  // };
 };
 
-const apiConfig = { baseUrl: 'http://localhost:3000/' };
+// const apiConfig = { baseUrl: 'http://localhost:3000/' };
+const apiConfig = { baseUrl: 'https://api.shuraaas.nomoredomainsclub.ru/' };
 const mainApi = new MainApi(apiConfig);
 
 export default mainApi;

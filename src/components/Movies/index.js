@@ -39,11 +39,12 @@ const Movies = ({ movies, savedMovies, onDelete, onCreate }) => {
 
   const handleShowMorePosts = () => {
     const res = moviesList.slice(next, next + countCardsToShow);
+    if ((res.length + resultArr.length) === moviesList.length) setBtnShowMore(false);
+
     setResultArr([...resultArr, ...res]);
     setNext(next + countCardsToShow);
   };
 
-  const getCheckboxState = () => JSON.parse(localStorage.getItem('checkboxState')) || false;
   const getRequest = () => localStorage.getItem('request') || '';
 
   const renderFirstSlicedCards = (data) => {
@@ -56,7 +57,9 @@ const Movies = ({ movies, savedMovies, onDelete, onCreate }) => {
     setNext(cardsOnPage);
   };
 
-  const handleSearch = (res) => {
+  const handleSearch = (res, data) => {
+    localStorage.setItem('movies', JSON.stringify(res));
+    localStorage.setItem('request', data.search);
     renderFirstSlicedCards(res);
     setMoviesList(res);
     setFirstSearch(true);
@@ -76,7 +79,7 @@ const Movies = ({ movies, savedMovies, onDelete, onCreate }) => {
         <MoviesNav />
       </Header>
       <section className='movies'>
-        <SearchForm onSearch={handleSearch} movies={movies} checkbox={getCheckboxState()} movieRequest={getRequest()} />
+        <SearchForm onSearch={handleSearch} movies={movies} movieRequest={getRequest()} />
         <MoviesCardList
           movies={renderCards()}
           savedMovies={savedMovies}

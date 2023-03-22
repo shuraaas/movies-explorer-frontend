@@ -3,12 +3,8 @@ import { useForm } from 'react-hook-form';
 import FilterCheckbox from '../FilterCheckbox';
 import './index.css';
 
-const SearchForm = ({ onSearch, movies, checkbox, movieRequest }) => {
-
-  const getCheckboxState = () => JSON.parse(localStorage.getItem('checkboxState')) || false;
-  console.log(getCheckboxState());
-
-  const [checkboxState, setCheckboxState] = useState(checkbox);
+const SearchForm = ({ onSearch, movies, movieRequest }) => {
+  const [checkboxState, setCheckboxState] = useState(false);
   const {
     register,
     formState: { errors, isValid },
@@ -54,10 +50,7 @@ const SearchForm = ({ onSearch, movies, checkbox, movieRequest }) => {
   const onSubmit = (data) => {
     const result = findMovie(data.search);
 
-    onSearch(result);
-
-    localStorage.setItem('movies', JSON.stringify(result));
-    localStorage.setItem('request', data.search);
+    onSearch(result, data);
   };
 
   return (

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import './index.css';
 
 const MoviesNav = () => {
-  // const burgerRef = useRef(null);
   const burgerBtnRef = useRef(null);
   const moviesNavRef = useRef(null);
 

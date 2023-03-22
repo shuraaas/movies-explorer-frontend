@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './index.css';
 
 const FilterCheckbox = ({ onFilter }) => {
   const checkboxRef = useRef(null);
   const checked = JSON.parse(localStorage.getItem('checkboxState')) || false;
-  const [filterCheckbox, setFilterCheckbox] = useState(false);
 
   useEffect(() => {
     checkboxRef.current.checked = checked;
@@ -12,7 +11,6 @@ const FilterCheckbox = ({ onFilter }) => {
 
   const handleClickCheckbox = () => {
     localStorage.setItem('checkboxState', checkboxRef.current.checked);
-    setFilterCheckbox(checkboxRef.current.checked);
     onFilter(checkboxRef.current.checked);
   };
 

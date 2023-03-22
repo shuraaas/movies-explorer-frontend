@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import {
-  SCREEN_S, SCREEN_M, SCREEN_L, SCREEN_XL,
+  SCREEN_M, SCREEN_XL,
 } from '../../utils/breakpoints.js';
 
 export const useResize = () => {

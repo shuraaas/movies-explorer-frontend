@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../Header';
 import Footer from '../Footer';
 import SearchForm from '../SearchForm';
@@ -7,13 +7,13 @@ import MoviesNav from '../MoviesNav';
 import './index.css';
 
 const SavedMovies = ({ onDelete, savedMovies }) => {
+  const [savedMoviesList, setSavedMoviesList] = useState([]);
 
-  // TODO: тут поиск сделать по сохраненным фильмам
-  const handleSearch = () => {
-    console.log('search');
-  };
+  useEffect(() => {
+    setSavedMoviesList(savedMovies);
+  }, [savedMovies])
 
-  const getCheckboxState = () => JSON.parse(localStorage.getItem('checkboxState')) || false;
+  const handleSearch = res => setSavedMoviesList(res);
 
   return (
     <>
@@ -21,8 +21,9 @@ const SavedMovies = ({ onDelete, savedMovies }) => {
         <MoviesNav />
       </Header>
       <section className='saved-movies'>
-        <SearchForm onSearch={handleSearch} />
-        <MoviesCardList movies={savedMovies} savedMovies={savedMovies} onDelete={onDelete} />
+        <SearchForm onSearch={handleSearch} movies={savedMovies} />
+        <MoviesCardList movies={savedMoviesList} savedMovies={savedMovies} onDelete={onDelete} />
+        {savedMoviesList.length === 0 && <p>Ничего не найдено</p>}
       </section>
       <Footer />
     </>
