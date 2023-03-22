@@ -4,6 +4,10 @@ import FilterCheckbox from '../FilterCheckbox';
 import './index.css';
 
 const SearchForm = ({ onSearch, movies, checkbox, movieRequest }) => {
+
+  const getCheckboxState = () => JSON.parse(localStorage.getItem('checkboxState')) || false;
+  console.log(getCheckboxState());
+
   const [checkboxState, setCheckboxState] = useState(checkbox);
   const {
     register,

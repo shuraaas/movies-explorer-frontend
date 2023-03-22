@@ -1,10 +1,8 @@
 import React from 'react';
-import mainApi from '../../utils/MainApi.js';
+import { useLocation } from 'react-router-dom';
 import './index.css';
 
 const MoviesCard = ({
-  // save,
-  // saved,
   country,
   director,
   duration,
@@ -17,18 +15,12 @@ const MoviesCard = ({
   nameRU,
   nameEN,
   savedMovies,
-  onDelete
+  onDelete,
+  onCreate
 }) => {
-
-  // console.log(_id);
-
-  let typeBtnSave = `${savedMovies ? 'btn btn_movie_unsaved' : 'btn btn_movie_save'}`;
-
-  // if (saved) {
-  //   typeBtnSave = 'btn btn_movie_unsaved';
-  // }
-
-  let btnSaveActive = false;
+  const location = useLocation();
+  const isSaved = savedMovies.some(item => item.movieId === id && location.pathname === '/movies');
+  const savedMoviesPage = location.pathname === '/saved-movies';
 
   const checkDuration = () => {
     let hour = 0;
@@ -46,25 +38,17 @@ const MoviesCard = ({
     } else {
       return `${duration}м`;
     }
-
-
-    // return duration;
   };
 
-  const handleSaveBtnClick = (e) => {
-    if (savedMovies) {
+  const handleSaveBtnClick = () => {
+    if (savedMoviesPage) {
       onDelete(_id);
-      console.log('savedMovies');
       return;
     }
-
-    if (!btnSaveActive) {
-      console.log('!btnSaveActive');
-      // e.target.classList.remove('btn_movie_save');
-      e.target.classList.add('btn_movie_saved');
-      btnSaveActive = true;
-
-      mainApi.createMovie({
+    if (isSaved) {
+      onDelete(id);
+    } else {
+      onCreate({
         country,
         director,
         duration,
@@ -77,16 +61,6 @@ const MoviesCard = ({
         nameRU,
         nameEN,
       });
-
-    } else {
-      // console.log('else');
-      e.target.classList.add('btn_movie_save');
-      e.target.classList.remove('btn_movie_saved');
-      btnSaveActive = false;
-      // console.log('_id',_id);
-      // console.log('id', id);
-      onDelete(id);
-      // mainApi.deleteMovie(id);
     }
   };
 
@@ -97,8 +71,11 @@ const MoviesCard = ({
           <h2 className='movies-card__name'>{nameRU}</h2>
           <p className='movies-card__duration'>{checkDuration()}</p>
         </div>
-        {/* <button className='btn btn_movie_save' type='button' onClick={handleSaveBtnClick}></button> */}
-        <button className={typeBtnSave} type='button' onClick={handleSaveBtnClick}></button>
+        <button
+          className={savedMoviesPage ? 'btn btn_movie_unsaved' : isSaved ? 'btn btn_movie_saved' : 'btn btn_movie_save'}
+          type='button'
+          onClick={handleSaveBtnClick}
+        ></button>
       </div>
       <img className='movies-card__image' src={image.url ? `https://api.nomoreparties.co${image.url}` : image} alt={nameRU} />
     </li>

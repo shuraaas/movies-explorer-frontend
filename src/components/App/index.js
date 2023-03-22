@@ -16,12 +16,15 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext.js';
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState({});
-  const [movies, setMovies] = useState(false);
-  const [currentCard, setCurrentCard] = useState('');
+  const [movies, setMovies] = useState([]);
+  const [savedMovies, setSavedMovies] = useState([]);
   const [result, setResult] = useState({});
-
-  let navigate = useNavigate();
   const location = useLocation();
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    getSavedMovies();
+  }, []);
 
   useEffect(() => {
     const jwt = localStorage.getItem('jwt');
@@ -36,6 +39,15 @@ const App = () => {
     try {
       const movies = await moviesApi.getMovies();
       setMovies(movies);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const getSavedMovies = async () => {
+    try {
+      const savedMovies = await mainApi.getSavedMovies();
+      setSavedMovies(savedMovies);
     } catch (err) {
       console.log(err);
     }
@@ -59,7 +71,6 @@ const App = () => {
       if (!data.token) throw new Error('Missing token');
       localStorage.setItem('jwt', data.token);
       setLoggedIn(true);
-      // setUser({ email, password });
       navigate('/movies', {replace: true});
     } catch (err) {
       console.log(err);
@@ -90,18 +101,29 @@ const App = () => {
     navigate('/', {replace: true});
   };
 
-  const handleDeleteMovieClick = (id) => {
-    setCurrentCard(id);
+  const handleDeleteMovieClick = async (id) => {
+    try {
+      if (Number(id)) {
+        const qwe = savedMovies.filter(item => item.movieId === id)
+        await mainApi.deleteMovie(qwe[0]._id);
+        setSavedMovies(movies => movies.filter(movie => movie._id !== qwe[0]._id));
+        return;
+      }
+
+      await mainApi.deleteMovie(id);
+      setSavedMovies(movies => movies.filter(movie => movie._id !== id));
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  const handleDeleteMovie = async () => {
-    // console.log(id);
-    // log
-    // try {
-    //   mainApi.deleteMovie(id);
-    // } catch (err) {
-    //   console.log(err);
-    // }
+  const handleAddMovieClick = async (data) => {
+    try {
+      const newMovie = await mainApi.createMovie(data);
+      setSavedMovies([...savedMovies, newMovie]);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const tokenCheck = async (token) => {
@@ -109,12 +131,13 @@ const App = () => {
       const user = await auth.getContent(token);
       setUser(user);
       setLoggedIn(true);
-      // TODO: вот из-за этого ниче не работало
       navigate(location.pathname, { replace: true });
     } catch (err) {
       console.log(err);
     }
   };
+
+
 
   return (
     <CurrentUserContext.Provider value={user}>
@@ -122,11 +145,27 @@ const App = () => {
         <Routes>
           <Route
             path='/movies'
-            element={<ProtectedRoute element={Movies} movies={movies || []} loggedIn={loggedIn}/>}
+            element={
+              <ProtectedRoute
+                element={Movies}
+                loggedIn={loggedIn}
+                movies={movies || []}
+                savedMovies={savedMovies || []}
+                onDelete={handleDeleteMovieClick}
+                onCreate={handleAddMovieClick}
+              />
+            }
           />
           <Route
             path='/saved-movies'
-            element={<ProtectedRoute element={SavedMovies} loggedIn={loggedIn} onDelete={handleDeleteMovieClick} />}
+            element={
+              <ProtectedRoute
+                element={SavedMovies}
+                loggedIn={loggedIn}
+                savedMovies={savedMovies || []}
+                onDelete={handleDeleteMovieClick}
+              />
+            }
           />
           <Route
             path='/profile'
