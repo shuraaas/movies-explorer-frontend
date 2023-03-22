@@ -1,1 +1,2 @@
-Макет https://disk.yandex.ru/d/a5xRxA7MAcr9JA
+- Макет https://disk.yandex.ru/d/a5xRxA7MAcr9JA
+- pull request https://github.com/shuraaas/movies-explorer-frontend/pull/2
