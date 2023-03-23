@@ -44,6 +44,10 @@
   height: 100%;
 }
 
+.movies-card__link {
+  text-decoration: none;
+}
+
 @media (min-width: 768px) and (max-width: 1279px) {
   .movies-card {
     max-width: 330px;

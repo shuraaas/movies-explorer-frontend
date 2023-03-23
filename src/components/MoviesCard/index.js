@@ -77,7 +77,9 @@ const MoviesCard = ({
           onClick={handleSaveBtnClick}
         ></button>
       </div>
-      <img className='movies-card__image' src={image.url ? `https://api.nomoreparties.co${image.url}` : image} alt={nameRU} />
+      <a className='movies-card__link' href={trailerLink} target='_blank' rel='noopener noreferrer'>
+        <img className='movies-card__image' src={image.url ? `https://api.nomoreparties.co${image.url}` : image} alt={nameRU} />
+      </a>
     </li>
   );
 };
