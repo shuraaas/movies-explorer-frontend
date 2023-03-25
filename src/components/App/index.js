@@ -53,7 +53,7 @@ const App = () => {
   const handleRegister = async ({ name, email, password }) => {
     try {
       await auth.register(name, email, password);
-      navigate('/signin', {replace: true});
+      await handleLogin({ email, password });
     } catch (err) {
       console.log(err);
       setResult({
