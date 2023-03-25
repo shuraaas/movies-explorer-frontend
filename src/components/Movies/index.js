@@ -15,6 +15,7 @@ const Movies = ({ movies, savedMovies, onDelete, onCreate }) => {
     isScreenL,
   } = useResize();
   const [moviesList, setMoviesList] = useState(getMovies);
+  const [checkboxState, setCheckboxState] = useState(getCheckboxState);
   const [firstSearch, setFirstSearch] = useState(false);
   const [btnShowMore, setBtnShowMore] = useState(false);
   const [resultArr, setResultArr] = useState([]);
@@ -35,6 +36,10 @@ const Movies = ({ movies, savedMovies, onDelete, onCreate }) => {
 
   function getMovies () {
     return JSON.parse(localStorage.getItem('movies')) || [];
+  };
+
+  function getCheckboxState () {
+    return JSON.parse(localStorage.getItem('checkboxState')) || false;
   };
 
   const handleShowMorePosts = () => {
@@ -65,6 +70,11 @@ const Movies = ({ movies, savedMovies, onDelete, onCreate }) => {
     setFirstSearch(true);
   };
 
+  const handleCheckbox = (state) => {
+    localStorage.setItem('checkboxState', state);
+    setCheckboxState(state);
+  };
+
   const renderCards = () => {
     if (resultArr.length === 0) {
       return moviesList;
@@ -79,7 +89,7 @@ const Movies = ({ movies, savedMovies, onDelete, onCreate }) => {
         <MoviesNav />
       </Header>
       <section className='movies'>
-        <SearchForm onSearch={handleSearch} movies={movies} movieRequest={getRequest()} />
+        <SearchForm onSearch={handleSearch} movies={movies} movieRequest={getRequest()} checkboxState={checkboxState} setCheckbox={handleCheckbox} />
         <MoviesCardList
           movies={renderCards()}
           savedMovies={savedMovies}

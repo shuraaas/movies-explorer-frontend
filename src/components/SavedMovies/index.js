@@ -8,12 +8,14 @@ import './index.css';
 
 const SavedMovies = ({ onDelete, savedMovies }) => {
   const [savedMoviesList, setSavedMoviesList] = useState([]);
+  const [checkboxState, setCheckboxState] = useState(false);
 
   useEffect(() => {
     setSavedMoviesList(savedMovies);
   }, [savedMovies])
 
   const handleSearch = res => setSavedMoviesList(res);
+  const handleCheckbox = state => setCheckboxState(state);
 
   return (
     <>
@@ -21,7 +23,7 @@ const SavedMovies = ({ onDelete, savedMovies }) => {
         <MoviesNav />
       </Header>
       <section className='saved-movies'>
-        <SearchForm onSearch={handleSearch} movies={savedMovies} />
+        <SearchForm onSearch={handleSearch} movies={savedMovies} checkboxState={checkboxState} setCheckbox={handleCheckbox} />
         <MoviesCardList movies={savedMoviesList} savedMovies={savedMovies} onDelete={onDelete} />
         {savedMoviesList.length === 0 && <p>Ничего не найдено</p>}
       </section>

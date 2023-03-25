@@ -1,18 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import './index.css';
 
-const FilterCheckbox = ({ onFilter }) => {
+const FilterCheckbox = ({ setCheckbox, checkboxState = false }) => {
   const checkboxRef = useRef(null);
-  const checked = JSON.parse(localStorage.getItem('checkboxState')) || false;
 
   useEffect(() => {
-    checkboxRef.current.checked = checked;
-  }, []);
+    checkboxRef.current.checked = checkboxState;
+  }, [checkboxState]);
 
-  const handleClickCheckbox = () => {
-    localStorage.setItem('checkboxState', checkboxRef.current.checked);
-    onFilter(checkboxRef.current.checked);
-  };
+  const handleClickCheckbox = () => setCheckbox(checkboxRef.current.checked);
 
   return (
     <div className='filter-checkbox'>

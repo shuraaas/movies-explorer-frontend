@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import FilterCheckbox from '../FilterCheckbox';
 import './index.css';
 
-const SearchForm = ({ onSearch, movies, movieRequest }) => {
-  const [checkboxState, setCheckboxState] = useState(false);
+const SearchForm = ({ onSearch, movies, movieRequest, checkboxState, setCheckbox }) => {
   const {
     register,
     formState: { errors, isValid },
@@ -16,7 +15,6 @@ const SearchForm = ({ onSearch, movies, movieRequest }) => {
     },
   });
 
-  const handleFilter = checkboxState => setCheckboxState(checkboxState);
   const checkDuration = () => movies.filter(movie => movie.duration <= 40);
 
   const findMovie = (req) => {
@@ -67,7 +65,7 @@ const SearchForm = ({ onSearch, movies, movieRequest }) => {
         {errors?.search && <span className='search-form__err'>{errors?.search?.message}</span>}
         <button className='btn btn_type_search-form' type='submit' disabled={!isValid}>Найти</button>
       </form>
-      <FilterCheckbox onFilter={handleFilter} />
+      <FilterCheckbox setCheckbox={setCheckbox} checkboxState={checkboxState} />
     </div>
   );
 };
