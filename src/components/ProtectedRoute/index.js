@@ -5,7 +5,7 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext.js';
 const ProtectedRoute = ({ element: Component, ...props }) => {
   const user = useContext(CurrentUserContext);
   return (
-    props.loggedIn ? <Component {...props} user={user} /> : <Navigate to='/signin' replace />
+    props.loggedIn ? <Component {...props} user={user} /> : <Navigate to='/' replace />
 )}
 
 export default ProtectedRoute;
