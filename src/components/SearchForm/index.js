@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import FilterCheckbox from '../FilterCheckbox';
+import { FILM_DURATION } from '../../utils/constants.js';
 import './index.css';
 
 const SearchForm = ({ onSearch, movies, movieRequest, checkboxState, setCheckbox }) => {
@@ -15,7 +16,7 @@ const SearchForm = ({ onSearch, movies, movieRequest, checkboxState, setCheckbox
     },
   });
 
-  const checkDuration = () => movies.filter(movie => movie.duration <= 40);
+  const checkDuration = () => movies.filter(movie => movie.duration <= FILM_DURATION);
 
   const findMovie = (req) => {
     if (checkboxState) {

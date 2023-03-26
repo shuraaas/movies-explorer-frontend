@@ -6,6 +6,13 @@ import Preloader from '../Preloader';
 import Header from '../Header';
 import MoviesNav from '../MoviesNav';
 import { useResize } from '../../utils/hooks/useResize';
+import {
+  ADD_TWO_CARDS,
+  ADD_THREE_CARDS,
+  INITIAL_COUNT_OF_CARDS_IS_FIVE,
+  INITIAL_COUNT_OF_CARDS_IS_EIGHT,
+  INITIAL_COUNT_OF_CARDS_IS_TWELVE,
+} from '../../utils/constants.js';
 import './index.css';
 
 const Movies = ({ movies, savedMovies, onDelete, onCreate }) => {
@@ -25,14 +32,14 @@ const Movies = ({ movies, savedMovies, onDelete, onCreate }) => {
   const [spin, setSpin] = useState(false);
 
   function getCountInitialCards() {
-    if (isScreenS) return 5;
-    if (isScreenM) return 8;
-    if (isScreenL) return 12;
+    if (isScreenS) return INITIAL_COUNT_OF_CARDS_IS_FIVE;
+    if (isScreenM) return INITIAL_COUNT_OF_CARDS_IS_EIGHT;
+    if (isScreenL) return INITIAL_COUNT_OF_CARDS_IS_TWELVE;
   };
 
   function getCountCardsToShow() {
-    if (isScreenS || isScreenM) return 2;
-    if (isScreenL) return 3;
+    if (isScreenS || isScreenM) return ADD_TWO_CARDS;
+    if (isScreenL) return ADD_THREE_CARDS;
   };
 
   function getMovies () {
