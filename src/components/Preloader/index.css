@@ -46,6 +46,10 @@
   position: relative;
 }
 
+.preloader__spin_active {
+  display: block;
+}
+
 .preloader__spin-round {
   width: 100px;
   height: 100px;

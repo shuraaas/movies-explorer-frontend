@@ -22,6 +22,7 @@ const Movies = ({ movies, savedMovies, onDelete, onCreate }) => {
   const [next, setNext] = useState(0);
   const [cardsOnPage, setCardsOnPage] = useState(getCountInitialCards);
   const [countCardsToShow, setCountCardsToShow] = useState(getCountCardsToShow);
+  const [spin, setSpin] = useState(false);
 
   function getCountInitialCards() {
     if (isScreenS) return 5;
@@ -63,11 +64,16 @@ const Movies = ({ movies, savedMovies, onDelete, onCreate }) => {
   };
 
   const handleSearch = (res, data) => {
+    setMoviesList([]);
+    setSpin(true);
     localStorage.setItem('movies', JSON.stringify(res));
     localStorage.setItem('request', data.search);
-    renderFirstSlicedCards(res);
-    setMoviesList(res);
-    setFirstSearch(true);
+    setTimeout(() => {
+      renderFirstSlicedCards(res);
+      setMoviesList(res);
+      setFirstSearch(true);
+      setSpin(false);
+    }, 1500);
   };
 
   const handleCheckbox = (state) => {
@@ -96,7 +102,7 @@ const Movies = ({ movies, savedMovies, onDelete, onCreate }) => {
           onDelete={onDelete}
           onCreate={onCreate}
           />
-        {btnShowMore && <Preloader onClick={handleShowMorePosts} />}
+        <Preloader onClick={handleShowMorePosts} btnShowMore={btnShowMore} spin={spin} />
         {moviesList.length === 0 && firstSearch ? <p>Ничего не найдено</p> : null}
       </section>
       <Footer />

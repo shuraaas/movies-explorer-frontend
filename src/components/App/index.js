@@ -16,7 +16,6 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext.js';
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState({});
-  console.log('user', user);
   const [movies, setMovies] = useState([]);
   const [savedMovies, setSavedMovies] = useState([]);
   const [result, setResult] = useState({});
