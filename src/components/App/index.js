@@ -129,7 +129,11 @@ const App = () => {
       const user = await auth.getContent(token);
       setUser(user);
       setLoggedIn(true);
-      navigate(location.pathname, { replace: true });
+      if (location.pathname === '/signin' || location.pathname === '/signup') {
+        navigate('/movies', { replace: true });
+      } else {
+        navigate(location.pathname, { replace: true });
+      }
     } catch (err) {
       console.log(err);
     }
