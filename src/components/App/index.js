@@ -16,6 +16,7 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext.js';
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState({});
+  console.log('user', user);
   const [movies, setMovies] = useState([]);
   const [savedMovies, setSavedMovies] = useState([]);
   const [result, setResult] = useState({});
@@ -79,7 +80,8 @@ const App = () => {
 
   const handleUpdateUser = async (userInfo) => {
     try {
-      await mainApi.setUserInfo(userInfo);
+      const newUserInfo = await mainApi.setUserInfo(userInfo);
+      setUser(newUserInfo);
       setResult({
         message: 'Данные обновлены',
       });
