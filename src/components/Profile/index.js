@@ -8,7 +8,7 @@ import './index.css';
 const Profile = ({ onLogout, onUpdate, user, resultUpdate }) => {
   const {
     register,
-    formState: { errors, isValid },
+    formState: { isDirty, errors, isValid },
     handleSubmit,
   } = useForm({
     mode: 'onChange',
@@ -63,7 +63,7 @@ const Profile = ({ onLogout, onUpdate, user, resultUpdate }) => {
               {errors?.email && <span className='form__input-error job-input-error'>{errors?.email?.message || 'Что-то пошло не так...'}</span>}
             </label>
           </fieldset>
-          <button className='btn btn_type_edit' type='submit' disabled={!isValid}>Редактировать</button>
+          <button className='btn btn_type_edit' type='submit' disabled={!isValid || !isDirty}>Редактировать</button>
           {resultUpdate?.message && <span className='profile__message'>{resultUpdate?.message}</span>}
         </form>
         <button className='btn btn_type_logout' type='button' onClick={onLogout}>Выйти из аккаунта</button>
