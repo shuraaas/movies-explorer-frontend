@@ -22,6 +22,7 @@ const App = () => {
   const location = useLocation();
   let navigate = useNavigate();
 
+
   useEffect(() => {
     const jwt = localStorage.getItem('jwt');
 
@@ -30,7 +31,7 @@ const App = () => {
       getMoviesData();
       getSavedMovies();
     };
-  }, [loggedIn, result]);
+  }, []);
 
   const getMoviesData = async () => {
     try {
