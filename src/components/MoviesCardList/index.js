@@ -2,13 +2,16 @@ import React from 'react';
 import MoviesCard from '../MoviesCard';
 import './index.css';
 
-const MoviesCardList = ({ cards }) => {
+const MoviesCardList = ({ movies, savedMovies, onDelete, onCreate }) => {
   return (
     <ul className='movies-card-list'>
-      {cards.map(card => (
+      {movies.map(movie => (
         <MoviesCard
-          key={card.id}
-          {...card}
+          key={movie._id || movie.id}
+          savedMovies={savedMovies}
+          onDelete={onDelete}
+          onCreate={onCreate}
+          {...movie}
         />
       ))}
     </ul>

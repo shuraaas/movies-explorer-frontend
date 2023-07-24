@@ -7,6 +7,11 @@
   color: #fff;
 }
 
+.btn_type_auth:disabled {
+  opacity: .5;
+  cursor: default;
+}
+
 @media (min-width: 320px) and (max-width: 767px) {
   .btn_type_auth {
     padding: 15px 0;

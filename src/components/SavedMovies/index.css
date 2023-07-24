@@ -1,5 +1,5 @@
 .saved-movies {
-  min-height: calc(100vh - 244px);
+  min-height: calc(100vh - 263px);
   padding: 0 max(30px, (100% - 1140px) / 2);
 }
 

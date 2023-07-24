@@ -1,22 +1,14 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import './index.css';
 
-const Preloader = () => {
-  const preloaderSpin = useRef(null);
-  const preloaderSpinOpen = false;
-
-  const handleBtnClick = (e) => {
-    if (!preloaderSpinOpen) {
-      e.target.style.display = 'none';
-      preloaderSpin.current.style.display = 'flex';
-    }
-  };
+const Preloader = ({ onClick, btnShowMore, spin }) => {
+  const handleBtnClick = () => onClick();
 
   return (
     <>
       <div className='preloader'>
-        <button className='btn btn_type_preloader' type='button' onClick={handleBtnClick}>Ещё</button>
-        <div className='preloader__spin' ref={preloaderSpin}>
+        {btnShowMore && <button className='btn btn_type_preloader' type='button' onClick={handleBtnClick}>Ещё</button>}
+        <div className={spin ? 'preloader__spin preloader__spin_active' : 'preloader__spin'}>
           <span className='preloader__spin-round'></span>
         </div>
       </div>

@@ -7,4 +7,10 @@
   font-size: 14px;
   font-weight: 400;
   color: #fff;
+  transition: border-color .3s ease-in-out;
+}
+
+.form__input:focus {
+  outline: none;
+  border-color: #4285F4;
 }
